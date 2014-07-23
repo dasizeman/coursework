@@ -65,12 +65,12 @@ void ArrayList<T>::INSERT(T x, position p)
 	}
 	else
 	{
-		for (q = END(); q >= p; q--)
+		for (q = last; q >= p; q--)
 		{
-			elements[q] = elements[q-1];
+			elements[q+1] = elements[q];
 		}
 		last++;
-		elements[p-1] = x;
+		elements[p] = x;
 	}
 }
 
@@ -78,16 +78,16 @@ template<typename T>
 void ArrayList<T>::DELETE(position p)
 {
 	position q;
-	if (p > END() || p < 1)
+	if (p > last || p < 1)
 	{
 		cout << "INSERT FAIL: There is no such position: " << p << endl;
 	}
 	else
 	{
 		last--;
-		for (q = p; q <= END(); q++)
+		for (q = p; q <= last; q++)
 		{
-			elements[q-1] = elements[q];
+			elements[q] = elements[q+1];
 		}
 	}
 }
@@ -97,9 +97,9 @@ position ArrayList<T>::LOCATE(T x)
 {
 	position q;
 
-	for (q = FIRST(); q <= END(); q++)
+	for (q = FIRST(); q < END(); q++)
 	{
-		if (elements[q-1] == x)
+		if (elements[q] == x)
 			return q;
 	}
 
@@ -137,7 +137,7 @@ position ArrayList<T>::PREVIOUS(position p)
 template<typename T>
 T ArrayList<T>::RETRIEVE(position p)
 {
-	return elements[p-1];
+	return elements[p];
 }
 
 template<typename T>
@@ -151,7 +151,7 @@ template<typename T>
 void ArrayList<T>::PRINTLIST()
 {
 	position p;
-	for (p = FIRST(); p <= END(); p = NEXT(p))
+	for (p = FIRST(); p < END(); p = NEXT(p))
 		cout << RETRIEVE(p) << " ";
 }
 
