@@ -7,5 +7,5 @@ build:main
 
 main: $(TARGETS)
 
-$(TARGETS): src/ArrayListTest.cpp
+$(TARGETS): src/ListTest.cpp src/ArrayList.h
 	$(CC) -o $@ $^

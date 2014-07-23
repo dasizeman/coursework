@@ -103,7 +103,7 @@ position ArrayList<T>::LOCATE(T x)
 			return q;
 	}
 
-	return NULL;
+	return -1;
 }
 
 template<typename T>
@@ -117,7 +117,8 @@ position ArrayList<T>::NEXT(position p)
 {
 	if (p > last || p < 1)
 	{
-		return NULL;
+		cout << "NEXT failed: no such position" << endl;
+		return END();
 	}
 
 	return p+1;
@@ -150,9 +151,14 @@ position ArrayList<T>::MAKENULL()
 template<typename T>
 void ArrayList<T>::PRINTLIST()
 {
-	position p;
-	for (p = FIRST(); p < END(); p = NEXT(p))
-		cout << RETRIEVE(p) << " ";
+	if (FIRST() == END())
+		cout << "PRINT FAIL: List is empty!" << endl;
+	else
+	{
+		position p;
+		for (p = FIRST(); p < END(); p = NEXT(p))
+			cout << RETRIEVE(p) << " ";
+	}
 }
 
 template<typename T>
