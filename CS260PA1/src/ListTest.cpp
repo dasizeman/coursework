@@ -13,7 +13,7 @@ int main()
 	ArrayList<int> intAL;
 
 	// Fill it
-	position p = intAL.FIRST();
+	al_position p = intAL.FIRST();
 	for (int i = 1; i <= 10; i++)
 	{
 		intAL.INSERT(i, p);
@@ -35,7 +35,7 @@ int main()
 
 	// Try locating the number 3
 	cout << "Looking for number 3..." << endl;
-	position location = intAL.LOCATE(3);
+	al_position location = intAL.LOCATE(3);
 	if (location >= 0)
 		cout << "Found at position " << location << endl;
 	else
