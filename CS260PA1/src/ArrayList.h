@@ -12,7 +12,7 @@
 #include <iostream>
 using namespace std;
 
-typedef int al_position;
+typedef int position;
 
 template<typename T>
 class ArrayList {
@@ -25,15 +25,15 @@ private:
 public:
 	ArrayList();
 	virtual ~ArrayList();
-	al_position END();
-	void INSERT(T x, al_position p);
-	void DELETE(al_position p);
-	al_position LOCATE(T x);
-	al_position FIRST();
-	T RETRIEVE(al_position p);
-	al_position NEXT(al_position p);
-	al_position PREVIOUS(al_position p);
-	al_position MAKENULL();
+	position END();
+	void INSERT(T x, position p);
+	void DELETE(position p);
+	position LOCATE(T x);
+	position FIRST();
+	T RETRIEVE(position p);
+	position NEXT(position p);
+	position PREVIOUS(position p);
+	position MAKENULL();
 	void PRINTLIST();
 };
 
@@ -46,15 +46,15 @@ ArrayList<T>::ArrayList() {
 }
 
 template<typename T>
-al_position ArrayList<T>::END()
+position ArrayList<T>::END()
 {
 	return last+1;
 }
 
 template<typename T>
-void ArrayList<T>::INSERT(T x, al_position p)
+void ArrayList<T>::INSERT(T x, position p)
 {
-	al_position q;
+	position q;
 	if (last >= MAXSIZE)
 	{
 		cout << "INSERT FAIL: The list is full" << endl;
@@ -75,9 +75,9 @@ void ArrayList<T>::INSERT(T x, al_position p)
 }
 
 template<typename T>
-void ArrayList<T>::DELETE(al_position p)
+void ArrayList<T>::DELETE(position p)
 {
-	al_position q;
+	position q;
 	if (p > last || p < 1)
 	{
 		cout << "INSERT FAIL: There is no such position: " << p << endl;
@@ -93,9 +93,9 @@ void ArrayList<T>::DELETE(al_position p)
 }
 
 template<typename T>
-al_position ArrayList<T>::LOCATE(T x)
+position ArrayList<T>::LOCATE(T x)
 {
-	al_position q;
+	position q;
 
 	for (q = FIRST(); q < END(); q++)
 	{
@@ -107,13 +107,13 @@ al_position ArrayList<T>::LOCATE(T x)
 }
 
 template<typename T>
-al_position ArrayList<T>::FIRST()
+position ArrayList<T>::FIRST()
 {
 	return 1;
 }
 
 template<typename T>
-al_position ArrayList<T>::NEXT(al_position p)
+position ArrayList<T>::NEXT(position p)
 {
 	if (p > last || p < 1)
 	{
@@ -125,7 +125,7 @@ al_position ArrayList<T>::NEXT(al_position p)
 }
 
 template<typename T>
-al_position ArrayList<T>::PREVIOUS(al_position p)
+position ArrayList<T>::PREVIOUS(position p)
 {
 	if (p > END() || p < 1)
 	{
@@ -136,13 +136,13 @@ al_position ArrayList<T>::PREVIOUS(al_position p)
 }
 
 template<typename T>
-T ArrayList<T>::RETRIEVE(al_position p)
+T ArrayList<T>::RETRIEVE(position p)
 {
 	return elements[p];
 }
 
 template<typename T>
-al_position ArrayList<T>::MAKENULL()
+position ArrayList<T>::MAKENULL()
 {
 	last = 0;
 	return 1;
@@ -155,7 +155,7 @@ void ArrayList<T>::PRINTLIST()
 		cout << "PRINT FAIL: List is empty!" << endl;
 	else
 	{
-		al_position p;
+		position p;
 		for (p = FIRST(); p < END(); p = NEXT(p))
 			cout << RETRIEVE(p) << " ";
 	}
