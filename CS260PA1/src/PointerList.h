@@ -9,6 +9,7 @@
 #define POINTERLIST_H_
 
 #include <iostream>
+using namespace std;
 
 template<typename T>
 struct cell{
@@ -34,18 +35,19 @@ public:
 	cell<T>* MAKENULL();
 	T RETRIEVE(cell<T>* p);
 	cell<T>* NEXT(cell<T>* p);
+	void PRINTLIST();
 };
 
 template<typename T>
 PointerList<T>::PointerList() {
-	head =  new cell<T>;
+	new(head) cell<T>();
 	head->next = NULL;
 }
 
 template<typename T>
 cell<T>* PointerList<T>::FIRST()
 {
-	return &head;
+	return head;
 }
 
 template<typename T>
@@ -101,7 +103,8 @@ T PointerList<T>::RETRIEVE(cell<T>* p)
 template<typename T>
 cell<T>* PointerList<T>::MAKENULL()
 {
-	cell<T>* p, d;
+	cell<T>* p;
+	cell<T>* d;
 	d = FIRST();
 	while (p->next != NULL)
 	{
@@ -109,7 +112,7 @@ cell<T>* PointerList<T>::MAKENULL()
 		delete(d);
 		d = p;
 	}
-	head = new cell<T>;
+	new(head) cell<T>();
 	head->next = NULL;
 }
 
@@ -120,6 +123,18 @@ cell<T>* PointerList<T>::NEXT(cell<T>* p)
 		return END();
 	return p->next;
 }
+
+template<typename T>
+void PointerList<T>::PRINTLIST()
+{
+	cell<T>* p = FIRST();
+	while(p->next != NULL)
+	{
+		cout << p->element << " ";
+		p = p->next;
+	}
+}
+
 template<typename T>
 PointerList<T>::~PointerList() {
 	MAKENULL();
