@@ -3,10 +3,10 @@ CXX=g++
 all: run clean
 
 run: run.o
-@./run
+	@./run
 
 run.o:
-@$(CXX) *.cpp *.h -o run 
+	@$(CXX) *.cpp *.h -o run 
 
 clean: 
-@rm run
+	@rm run
