@@ -7,12 +7,20 @@
 
 #include "ArrayList.h"
 #include "PointerList.h"
+#include "ArrayStack.h"
+#include "PointerStack.h"
 
 void testArrayList();
 void testPointerList();
+void testArrayStack();
+void testPointerStack();
 
 int main()
 {
+	//testArrayList();
+	//testPointerList();
+	//testArrayStack();
+	testPointerStack();
 	return 0;
 }
 
@@ -98,7 +106,7 @@ void testPointerList()
 		intPL.PRINTLIST();
 		cout << endl <<  "-----------" << endl;
 
-		// Delete the item at cell<int>* 4 and 7
+		// Delete the item at position 4 and 7
 		intPL.DELETE(intPL.LOCATE(4));
 		intPL.DELETE(intPL.LOCATE(7));
 
@@ -112,7 +120,7 @@ void testPointerList()
 		cout << "Looking for number 3..." << endl;
 		cell<int>* location = intPL.LOCATE(3);
 		if (location >= 0)
-			cout << "Found at position " << location << endl;
+			cout << "Found" << endl;
 		else
 			cout << "Item not found" << endl;
 
@@ -122,13 +130,13 @@ void testPointerList()
 		cout << "Looking for number 8..." << endl;
 		location = intPL.LOCATE(8);
 		if (location >= 0)
-			cout << "Found at position " << location << endl;
+			cout << "Found" << endl;
 		else
 			cout << "Item not found" << endl;
 
 		cout << "-----------" << endl;
 
-		// Insert the number 23 at cell<int>* 5
+		// Insert the number 23 at position 5
 		cout << "Inserting 23 at position 5..." << endl;
 		p = intPL.FIRST();
 		for (int i = 0; i < 4; i++)
@@ -138,11 +146,11 @@ void testPointerList()
 
 		cout << endl << "-----------" << endl;
 
-		// Try inserting 23 at cell<int>* 11
+		// Try inserting 23 at position 11
 		cout << "Inserting 23 at position 11..." << endl;
 		p = intPL.FIRST();
 		for (int i = 0; i < 10; i++)
-			p = p->next;
+			p = intPL.NEXT(p);
 		intPL.INSERT(23,p);
 		intPL.PRINTLIST();
 
@@ -153,5 +161,86 @@ void testPointerList()
 		intPL.MAKENULL();
 		intPL.PRINTLIST();
 }
+
+void testArrayStack()
+{
+	// Create a new stack
+	ArrayStack<int> arrS;
+
+	// Push some items on the stack
+	for (int i = 0; i < 10; i++)
+		arrS.PUSH(i);
+
+	// Print
+	arrS.PRINTSTACK();
+
+	cout << endl << "----------" << endl;
+
+	// Pop
+	arrS.POP();
+	arrS.PRINTSTACK();
+
+	// Top
+	cout << endl << "Top: " << arrS.TOP() << endl;
+
+	cout << "----------" << endl;
+
+	// Clear
+	cout << "Clearing..." << endl;
+	arrS.MAKENULL();
+	arrS.PRINTSTACK();
+
+	cout << "---------" << endl;
+	cout << "Pushing 5..." << endl;
+	arrS.PUSH(5);
+	arrS.PRINTSTACK();
+	cout << endl << "Popping..." << endl;
+	arrS.POP();
+	arrS.PRINTSTACK();
+	cout << "Popping..." << endl;
+	arrS.POP();
+
+}
+
+void testPointerStack()
+{
+	// Create a new stack
+		PointerStack<int> pointS;
+
+		// Push some items on the stack
+		for (int i = 0; i < 10; i++)
+			pointS.PUSH(i);
+
+		// Print
+		pointS.PRINTSTACK();
+
+		cout << endl << "----------" << endl;
+
+		// Pop
+		pointS.POP();
+		pointS.PRINTSTACK();
+
+		// Top
+		cout << endl << "Top: " << pointS.TOP() << endl;
+
+		cout << "----------" << endl;
+
+		// Clear
+		cout << "Clearing..." << endl;
+		pointS.MAKENULL();
+		pointS.PRINTSTACK();
+
+		cout << "---------" << endl;
+		cout << "Pushing 5..." << endl;
+		pointS.PUSH(5);
+		pointS.PRINTSTACK();
+		cout << endl << "Popping..." << endl;
+		pointS.POP();
+		pointS.PRINTSTACK();
+		cout << "Popping..." << endl;
+		pointS.POP();
+}
+
+
 
 

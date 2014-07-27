@@ -13,8 +13,8 @@ using namespace std;
 
 template<typename T>
 struct cell{
-		T element;
-		cell<T>* next;
+		T element = T();
+		cell<T>* next = NULL;
 	};
 
 
@@ -22,7 +22,7 @@ template <typename T>
 class PointerList {
 
 private:
-	cell<T>* head;
+	cell<T>* head = NULL;
 
 public:
 	PointerList();
@@ -40,8 +40,7 @@ public:
 
 template<typename T>
 PointerList<T>::PointerList() {
-	new(head) cell<T>();
-	head->next = NULL;
+	head = new cell<T>;
 }
 
 template<typename T>
@@ -63,7 +62,7 @@ cell<T>* PointerList<T>::END()
 }
 
 template<typename T>
-void INSERT(T x, cell<T>* p)
+void PointerList<T>::INSERT(T x, cell<T>* p)
 {
 	cell<T>* temp;
 	temp = p->next;
@@ -75,8 +74,9 @@ void INSERT(T x, cell<T>* p)
 template<typename T>
 void PointerList<T>::DELETE(cell<T>* p)
 {
+	cell<T>* q = p->next->next;
 	delete(p->next);
-	p->next = p->next->next;
+	p->next = q;
 }
 
 template<typename T>
@@ -106,14 +106,14 @@ cell<T>* PointerList<T>::MAKENULL()
 	cell<T>* p;
 	cell<T>* d;
 	d = FIRST();
-	while (p->next != NULL)
+	while (d->next != NULL)
 	{
 		p = d->next;
 		delete(d);
 		d = p;
 	}
-	new(head) cell<T>();
-	head->next = NULL;
+	delete(d);
+	head = new cell<T>;
 }
 
 template<typename T>
@@ -128,10 +128,12 @@ template<typename T>
 void PointerList<T>::PRINTLIST()
 {
 	cell<T>* p = FIRST();
+	if (p->next == NULL)
+		cout << "PRINT ERROR: List is empty!" << endl;
 	while(p->next != NULL)
 	{
-		cout << p->element << " ";
 		p = p->next;
+		cout << p->element << " ";
 	}
 }
 

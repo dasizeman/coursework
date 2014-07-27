@@ -18,7 +18,7 @@ template<typename T>
 class ArrayList {
 
 private:
-	T elements[MAXSIZE];
+	T elements[MAXSIZE+1];
 	int last;
 
 
