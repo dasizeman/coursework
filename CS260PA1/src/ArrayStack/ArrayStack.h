@@ -7,7 +7,7 @@
 
 #ifndef ARRAYSTACK_H_
 #define ARRAYSTACK_H_
-#define MAXSIZE 1000
+#define MAXSIZE 1000000
 
 #include <iostream>
 using namespace std;

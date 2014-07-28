@@ -13,6 +13,7 @@ int main()
 	ArrayList<int> intAL;
 
 	// Fill it
+	cout << "Inserting 10 items..." << endl;
 	position p = intAL.FIRST();
 	for (int i = 1; i <= 10; i++)
 	{

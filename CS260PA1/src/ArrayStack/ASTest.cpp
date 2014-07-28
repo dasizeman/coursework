@@ -13,7 +13,8 @@ int main()
 	ArrayStack<int> arrS;
 
 	// Push some items on the stack
-	for (int i = 0; i < 10; i++)
+	cout << "Pushing 10 items..." << endl;
+	for (int i = 1; i <= 10; i++)
 		arrS.PUSH(i);
 
 	// Print

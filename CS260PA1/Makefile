@@ -1,5 +1,5 @@
-CC=g++ -g
-TARGETS=hw1
+CC=g++ -g -std=c++11
+TARGETS=timing
 
 all:build
 
@@ -7,5 +7,5 @@ build:main
 
 main: $(TARGETS)
 
-$(TARGETS): src/*
+$(TARGETS): src/*.cpp
 	$(CC) -o $@ $^

@@ -1,0 +1,93 @@
+Name:
+David Sizer
+
+Completed Problems:
+---> Array List
+---> Pointer List
+---> Array Stack
+---> Pointer Stack
+---> Time Measurements
+
+
+Program Output:
+The programs all run tests on the data structures' functions.  The structure will output an error when one occurs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---> Array List
+Inserting 10 items...
+1 2 3 4 5 6 7 8 9 10 
+-----------
+Deleted items at positions 4 and 7
+1 2 3 5 6 7 9 10 
+-----------
+Looking for number 3...
+Found at position 3
+-----------
+Looking for number 8...
+Item not found
+-----------
+Inserting 23 at position 5...
+1 2 3 5 23 6 7 9 10 
+-----------
+Inserting 23 at position 11...
+INSERT FAIL: There is no such position: 11
+1 2 3 5 23 6 7 9 10 
+-----------
+Clearing the list...
+PRINT FAIL: List is empty!
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---> Pointer List
+Inserting 10 items...
+10 9 8 7 6 5 4 3 2 1 
+-----------
+Deleted items at positions 4 and 7
+10 9 8 6 5 3 2 1 
+-----------
+Looking for number 3...
+Found
+-----------
+Looking for number 8...
+Found
+-----------
+Inserting 23 at position 5...
+10 9 8 6 23 5 3 2 1 
+-----------
+Inserting 23 at position 11...
+10 9 8 6 23 5 3 2 1 23 
+-----------
+Clearing the list...
+PRINT ERROR: List is empty!
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---> Array Stack
+Pushing 10 items...
+10 9 8 7 6 5 4 3 2 1 
+----------
+9 8 7 6 5 4 3 2 1 
+Top: 9
+----------
+Clearing...
+PRINT ERROR: Stack is empty!
+---------
+Pushing 5...
+5 
+Popping...
+PRINT ERROR: Stack is empty!
+Popping...
+POP ERROR: Stack is empty
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---> Pointer Stack
+Pushing 10 items...
+10 9 8 7 6 5 4 3 2 1 
+----------
+9 8 7 6 5 4 3 2 1 
+Top: 9
+----------
+Clearing...
+PRINT ERROR: List is empty!
+---------
+Pushing 5...
+5 
+Popping...
+PRINT ERROR: List is empty!
+Popping...
+POP ERROR: Stack is empty
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~

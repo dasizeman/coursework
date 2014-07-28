@@ -13,11 +13,12 @@ int main()
 			PointerList<int> intPL;
 
 	// Fill it
+	cout << "Inserting 10 items..." << endl;
 	cell<int>* p = intPL.FIRST();
 	for (int i = 1; i <= 10; i++)
 	{
-		intPL.INSERT(i, p);
-		p = intPL.NEXT(p);
+		intPL.INSERT(i, intPL.FIRST());
+		//p = intPL.NEXT(p);
 	}
 	// Print it
 	intPL.PRINTLIST();
