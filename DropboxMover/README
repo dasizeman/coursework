@@ -1,0 +1,10 @@
+This application accesses Dropbox and tries to find a file in the root called __list.  Based on the information in
+this file, it will download the desired files to the desired locations.  The file must be in the following format (without the []):
+
+[/path/to/dropbox/file] [/path/to/local/save/location]
+
+with new file entries on each line
+
+NOTE: This code uses the Java SDK for the core API provided by Dropbox
+
+By: Dave Sizer (das433)
