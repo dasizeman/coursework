@@ -13,7 +13,7 @@ using namespace std;
 
 template<typename T>
 struct cell{
-		T element = T();
+		T element;
 		cell<T>* next = NULL;
 	};
 
