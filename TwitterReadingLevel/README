@@ -1,0 +1,9 @@
+This program uses the Twitter API to analyze the reading level of a Twitter user's post content.  It works by splitting the most recent 30 tweets by the user into words and sentences, counting the words that have 3 or more syllables, and using this information in a formula to determine reading level.  It uses the following tools to do so:
+
+twitter4j: A twitter library for Java, that accesses the Twitter API
+(http://twitter4j.org/en/)
+
+wordnik API: For counting the syllables in words
+(http://developer.wordnik.com/)
+
+By: Dave Sizer (das433)
