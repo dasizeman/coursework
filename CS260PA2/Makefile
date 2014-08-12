@@ -3,5 +3,5 @@ TARGETS=loc
 
 all: $(TARGETS)
 
-$(TARGETS): TREE_LOC/*
+$(TARGETS): Algorithms/*
 	$(CC) -o $@ $^
