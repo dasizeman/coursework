@@ -97,9 +97,6 @@ void LOCTree<T>::CREATE1(T v)
 	cellspace[*cavail] = newc;
 	(*cavail)++;
 
-	//cout << "CREATE 1 DONE" << endl;
-	//PRINTTREE(ROOT(), "", false);
-
 
 }
 
@@ -116,11 +113,6 @@ void LOCTree<T>::CREATE2(T v, LOCTree<T> t)
 	cellspace[*cavail] = newc;
 	(*cavail)++;
 	cellspace[nodespace[root].header].next = (*cavail - 1);
-
-
-
-	//cout << "CREATE 2 DONE" << endl;
-	//PRINTTREE(ROOT(), "", false);
 
 }
 
@@ -139,9 +131,6 @@ void LOCTree<T>::CREATE3(T v, LOCTree<T> t1, LOCTree<T> t2)
 	// Add this entry as this root's third child
 	cellspace[cellspace[nodespace[root].header].next].next = (*cavail - 1);
 
-
-	//cout << "CREATE 3 DONE" << endl;
-	//PRINTTREE(ROOT(), "", false);
 }
 
 template<typename T>
