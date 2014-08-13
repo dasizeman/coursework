@@ -3,5 +3,5 @@ TARGETS=loc
 
 all: $(TARGETS)
 
-$(TARGETS): TREE_LCRS/*
+$(TARGETS): ./*.cpp
 	$(CC) -o $@ $^
