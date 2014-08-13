@@ -101,8 +101,8 @@ void LOCTree<T>::CREATE1(T v)
 	cellspace[*cavail] = newc;
 	(*cavail)++;
 
-	cout << "CREATE 1 DONE" << endl;
-	PRINTTREE(ROOT(), "", false);
+	//cout << "CREATE 1 DONE" << endl;
+	//PRINTTREE(ROOT(), "", false);
 
 
 }
@@ -112,31 +112,19 @@ void LOCTree<T>::CREATE2(T v, LOCTree<T> t)
 {
 	CREATE1(v);
 
-	// Two cases: t has children already (it has a node in cellspace), or it is a single node,
-	// in which case it does not and we have to create one pointing back to that node (this makes
-	// sense trust me)
 
-	// Case 1:
-	if (nodespace[t.ROOT()].header != 0)
-	{
-		// Set t's root as the second child of this root
-		cellspace[nodespace[root].header].next = nodespace[t.ROOT()].header;
-	}
-	else // Case 2:
-	{
-		// Create a cellspace entry for t's root
-		tcell newc;
-		newc.node = t.ROOT();
-		newc.next = 0;
-		cellspace[*cavail] = newc;
-		(*cavail)++;
+	// Create a cell in cellspace, set t's root to be its node (next = 0), and set this root's header cell's next to it
+	tcell newc;
+	newc.node = t.ROOT();
+	newc.next = 0;
+	cellspace[*cavail] = newc;
+	(*cavail)++;
+	cellspace[nodespace[root].header].next = (*cavail - 1);
 
-		// Add this entry as this root's second child
-		cellspace[nodespace[root].header].next = (*cavail - 1);
-	}
 
-	cout << "CREATE 2 DONE" << endl;
-	PRINTTREE(ROOT(), "", false);
+
+	//cout << "CREATE 2 DONE" << endl;
+	//PRINTTREE(ROOT(), "", false);
 
 }
 
@@ -145,31 +133,19 @@ void LOCTree<T>::CREATE3(T v, LOCTree<T> t1, LOCTree<T> t2)
 {
 	CREATE2(v, t1);
 
-	// Two cases: t has children already (it has a node in cellspace), or it is a single node,
-	// in which case it does not and we have to create one pointing back to that node (this makes
-	// sense trust me)
+	// Create a cellspace entry for t's root
+	tcell newc;
+	newc.node = t2.ROOT();
+	newc.next = 0;
+	cellspace[*cavail] = newc;
+	(*cavail)++;
 
-	// Case 1:
-	if (nodespace[t2.ROOT()].header != 0)
-	{
-		// Set t2's root as the third child of this root
-		cellspace[cellspace[nodespace[root].header].next].next = nodespace[t2.ROOT()].header;
-	}
-	else // Case 2:
-	{
-		// Create a cellspace entry for t's root
-		tcell newc;
-		newc.node = t2.ROOT();
-		newc.next = 0;
-		cellspace[*cavail] = newc;
-		(*cavail)++;
+	// Add this entry as this root's third child
+	cellspace[cellspace[nodespace[root].header].next].next = (*cavail - 1);
 
-		// Add this entry as this root's third child
-		cellspace[cellspace[nodespace[root].header].next].next = (*cavail - 1);
-	}
 
-	cout << "CREATE 3 DONE" << endl;
-	PRINTTREE(ROOT(), "", false);
+	//cout << "CREATE 3 DONE" << endl;
+	//PRINTTREE(ROOT(), "", false);
 }
 
 template<typename T>
