@@ -12,7 +12,6 @@
 #ifndef LOCTREE_H_
 #define LOCTREE_H_
 
-#include <vector>
 #include <string>
 #include "PointerList.h"
 
@@ -39,9 +38,6 @@ private:
 	tcell* cellspace;
 	ns_cursor* navail;
 	cs_cursor* cavail;
-
-
-protected: // We need to access these for when this tree will be merged with another one
 	ns_cursor root;
 
 
