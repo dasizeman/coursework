@@ -3,5 +3,5 @@ TARGETS=loc
 
 all: $(TARGETS)
 
-$(TARGETS): ./*.cpp
+$(TARGETS): Algorithms/eval.cpp
 	$(CC) -o $@ $^
