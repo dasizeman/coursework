@@ -233,11 +233,11 @@ void LOCTree<T>::PRINTTREE(ns_cursor n, string indent, bool last)
 	}
 	cout << nodespace[n].label << endl;
 
-	ns_cursor child = cellspace[nodespace[n].header].node; // The first child
+	ns_cursor child = LEFTMOST_CHILD(n); // The first child
 	while (child != 0) // While there are more children
 	{
-		PRINTTREE(child,indent, (cellspace[nodespace[n].header].next == 0)); // Print the child tree
-		child = cellspace[cellspace[nodespace[n].header].next].node;
+		PRINTTREE(child,indent, (RIGHT_SIBLING(child) == 0)); // Print the child tree
+		child = RIGHT_SIBLING(child);
 	}
 }
 

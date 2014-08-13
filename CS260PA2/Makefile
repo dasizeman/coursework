@@ -3,5 +3,5 @@ TARGETS=loc
 
 all: $(TARGETS)
 
-$(TARGETS): Algorithms/*.h Algorithms/ConcatenateLists.cpp
+$(TARGETS): TREE_LOC/*
 	$(CC) -o $@ $^
