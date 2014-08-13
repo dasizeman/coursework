@@ -3,5 +3,5 @@ TARGETS=loc
 
 all: $(TARGETS)
 
-$(TARGETS): Algorithms/*
+$(TARGETS): Algorithms/*.h Algorithms/ConcatenateLists.cpp
 	$(CC) -o $@ $^
