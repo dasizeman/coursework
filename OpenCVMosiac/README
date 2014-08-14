@@ -1,0 +1,5 @@
+Creates a composite image based on an input images, using a collection of thumbnail images located in the thumbs/ directory.  
+
+Uses OpenCV
+
+Skeleton code by Lou Kratz of Drexel University
