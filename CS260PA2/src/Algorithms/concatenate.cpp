@@ -21,6 +21,7 @@ int main()
 	createNSortedIntLists(5, lists);
 
 	cell<PointerList<int>* >* pos = lists->FIRST();
+	cout << "SOURCE LISTS" << endl;
 	while (pos->next != NULL)
 	{
 		pos = pos->next;
@@ -30,7 +31,10 @@ int main()
 	cout << "-------------------" << endl;
 
 	PointerList<int>* concatenated = concatenateLists(lists);
+	cout << "CONCATENATED LIST" << endl;
 	concatenated->PRINTLIST();
+
+	cout << endl;
 
 	return 0;
 }

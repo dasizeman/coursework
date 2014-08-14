@@ -19,7 +19,7 @@ private:
 
 public:
 	PointerQueue();
-	cell<T>* FRONT();
+	T FRONT();
 	void ENQUEUE(T x);
 	void DEQUEUE();
 	bool EMPTY();
@@ -32,26 +32,24 @@ public:
 template<typename T>
 PointerQueue<T>::PointerQueue()
 {
-	front = PList.FIRST();
-	rear = PList.END();
 }
 
 template<typename T>
-cell <T>* PointerQueue<T>::FRONT()
+T PointerQueue<T>::FRONT()
 {
-	return front;
+	return PList.FIRST()->next->element;
 }
 
 template<typename T>
 void PointerQueue<T>::ENQUEUE(T x)
 {
-	PList.INSERT(x, rear);
+	PList.INSERT(x, PList.FIRST());
 }
 
 template<typename T>
 void PointerQueue<T>::DEQUEUE()
 {
-	PList.DELETE(rear);
+	PList.DELETE(PList.PREVIOUS(PList.END()));
 }
 
 template <typename T>

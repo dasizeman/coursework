@@ -14,6 +14,7 @@ int main()
 
 	int height = 3, rootval = 0;
 	LCRSTree<int> tree = createFullTree(rootval, height, cellspace,&cavail);
+	cout << "PRINTING TREE: (requires tree operations)" << endl;
 	tree.PRINTTREE(tree.ROOT(), "", false);
 
 

@@ -39,6 +39,7 @@ int main()
 
 	PointerList<int>* merged = mergeNLists(lists);
 	merged->PRINTLIST();
+	cout << endl;
 
 
 
