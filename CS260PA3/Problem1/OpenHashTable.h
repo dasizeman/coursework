@@ -9,22 +9,24 @@
 #define OPENHASHTABLE_H_
 
 #include <string>
+#include <iostream>
 using namespace std;
 
 #include "PointerList.h"
+const int MAXBUCKETS = 100000;
 
 class OpenHashTable {
 public:
 	OpenHashTable(int b);
+	~OpenHashTable();
 	void MAKENULL();
 	bool MEMBER(string x);
 	void INSERT(string x);
 	void DELETE (string x);
+	void SETB(int b);
 
 private:
-	const int MAXBUCKETS = 1000;
 	int B;
-	int N;
 	PointerList<string>* table[MAXBUCKETS];
 	int h(string s);
 };
@@ -32,16 +34,24 @@ private:
 OpenHashTable::OpenHashTable(int b)
 {
 	B = b;
-	N = 0;
 	for (int i = 0; i < MAXBUCKETS; i++)
 		table[i] = NULL;
+	for (int i = 0; i < B; i++)
+		table[i] = new PointerList<string>;
 }
 
+OpenHashTable::~OpenHashTable()
+{
+	MAKENULL();
+	cout << "killing hash table" << endl;
+}
 void OpenHashTable::MAKENULL()
 {
 	for (int i = 0; i < B; i++)
+	{
 		table[i]->MAKENULL();
-	OpenHashTable(B);
+		table[i] = NULL;
+	}
 }
 
 bool OpenHashTable::MEMBER(string x)
@@ -61,6 +71,7 @@ bool OpenHashTable::MEMBER(string x)
 void OpenHashTable::INSERT(string x)
 {
 	int bucket = h(x);
+	//cout << "GENERATED KEY FOR INSERTION: " << bucket << endl;
     if (!MEMBER(x))
     {
     	table[bucket]->INSERT(x, table[bucket]->END());
@@ -77,6 +88,8 @@ void OpenHashTable::DELETE(string x)
 	{
 		if (p->next->element == x)
 			table[bucket]->DELETE(p);
+		else
+			p = p->next;
 	}
 }
 
@@ -90,6 +103,15 @@ int OpenHashTable::h (string s)
 	}
 
 	return sum % B;
+}
+
+void OpenHashTable::SETB(int b)
+{
+	MAKENULL();
+	B = b;
+		for (int i = 0; i < B; i++)
+			table[i] = new PointerList<string>;
+
 }
 
 
