@@ -3,7 +3,7 @@ CXX=g++
 all: run clean
  
 run: run.o
-	@./run
+	@./run < /usr/share/dict/words
  
 run.o:
 	@$(CXX) *.cpp *.h -o run

@@ -1,0 +1,13 @@
+prob1:
+	Problem1/$(MAKE)
+prob4:
+	Problem4/$(MAKE)
+prob5:
+	Problem5/$(MAKE)
+prob6:
+	Problem6/$(MAKE)
+prob7:
+	Problem7/$(MAKE)
+prob8:
+	Problem8/$(MAKE)
+

@@ -14,7 +14,7 @@ using namespace std;
 template<typename T>
 struct cell{
 		T element;
-		cell<T>* next = NULL;
+		cell<T>* next;
 	};
 
 
@@ -22,7 +22,7 @@ template <typename T>
 class PointerList {
 
 private:
-	cell<T>* head = NULL;
+	cell<T>* head;
 
 public:
 	PointerList();
@@ -42,6 +42,7 @@ public:
 template<typename T>
 PointerList<T>::PointerList() {
 	head = new cell<T>;
+	head->next = NULL;
 }
 
 template<typename T>

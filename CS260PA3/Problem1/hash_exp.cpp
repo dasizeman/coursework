@@ -76,7 +76,7 @@ int main()
 			bestb = i;
 		}
 	}
-	double load = (double)(bestb)/NUMWORDS;
+	double load = (double)(NUMWORDS)/bestb;
 	cout << "DETERMINED OPTIMAL BUCKET SIZE TO BE " << bestb << endl;
 	cout << "LOAD FACTOR " << load << endl;
 
